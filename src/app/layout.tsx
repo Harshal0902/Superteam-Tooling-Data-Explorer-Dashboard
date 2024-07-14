@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import './globals.css'
 import { cn, constructMetadata } from '@/lib/utils'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -13,7 +14,9 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
     <html lang='en'>
       <body className={cn('min-h-screen bg-background antialiased font-sansSerif')}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
-          <Navbar />
+          <Suspense>
+            <Navbar />
+          </Suspense>
           <main className='flex-grow flex-1 pt-16'>
             {children}
           </main>

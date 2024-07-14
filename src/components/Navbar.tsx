@@ -41,8 +41,10 @@ export default function Navbar() {
         setSelectedNetwork(query);
         const newSearchParams = new URLSearchParams(searchParams.toString());
         newSearchParams.set('mode', query);
-        router.push(`${pathname}?${newSearchParams.toString()}`);
-        toast.success(`Network changes to ${query}`);
+        if (pathname) {
+            router.push(`${pathname}?${newSearchParams.toString()}`);
+            toast.success(`Network changes to ${query}`);
+        }
     };
 
     return (

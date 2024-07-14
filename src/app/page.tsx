@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { Suspense } from 'react'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import { Spotlight } from '@/components/ui/spotlight'
 import { ContainerScroll } from '@/components/ui/container-scroll-animation'
@@ -51,7 +51,7 @@ const FeatureCard: React.FC<Feature> = ({ logo, title, description }) => (
 
 export default function Page() {
   return (
-    <div>
+    <Suspense fallback='loading'>
       <div className='md:h-[30rem] w-full flex md:items-center md:justify-center antialiased bg-grid-white/[0.02] relative overflow-hidden'>
         <Spotlight
           className='-top-40 -left-10 md:-left-32 md:-top-20 h-screen'
@@ -104,6 +104,6 @@ export default function Page() {
           </div>
         </div>
       </MaxWidthWrapper>
-    </div>
+    </Suspense>
   )
 }
